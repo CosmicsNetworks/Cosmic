@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased text-white;
+    background-color: #050715; /* Deep space background */
+  }
+
+  html, body {
+    @apply overflow-x-hidden;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .font-heading {
+    @apply font-sans font-bold;
+  }
+
+  /* Custom scrollbar for space theme */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-slate-900/50;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-purple-500/50 rounded-full;
+  }
+
+  /* Animation for floating elements */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  /* Animation for shooting stars */
+  @keyframes shooting-star {
+    0% {
+      transform: translateX(0) translateY(0) rotate(var(--tw-rotate));
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.3;
+    }
+    30% {
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateX(500px) translateY(300px) rotate(var(--tw-rotate));
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0) translateY(0) rotate(var(--tw-rotate));
+      opacity: 0;
+    }
+  }
+  
+  /* Custom utility for radial gradients */
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+}
